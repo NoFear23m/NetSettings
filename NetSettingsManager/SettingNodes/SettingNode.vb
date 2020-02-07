@@ -1,6 +1,6 @@
 ﻿Imports NetSettingsManager.Interfaces
 
-Public Class SettingNode(Of T As Class)
+Public Class SettingNode(Of T)
     Implements Interfaces.ISettingNode(Of T)
 
     Public Sub New()
@@ -30,7 +30,5 @@ Public Class SettingNode(Of T As Class)
 
     Public Property UnitString As String Implements ISettingNode(Of T).UnitString
 
-    Public Shared Widening Operator CType(v As SettingNode(Of String)) As SettingNode(Of T)
-        Throw New NotImplementedException()
-    End Operator
+
 End Class

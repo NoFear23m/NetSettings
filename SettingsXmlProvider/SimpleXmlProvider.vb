@@ -82,10 +82,10 @@ Public Class SimpleXmlProvider
         Dim root As XElement = XElement.Load(FilePath)
         Dim xNode = From x In root.<Node> Where x.@Key = key Select x
 
-        Dim node As New SettingNode(Of String)
+        Dim node As New SettingNode(Of T)
         node.Key = key
         If Not xNode.Any Then Return Nothing 'gibt es den Knoten nicht ist es das erste mal das dieser Key gepsiechert wird.
-        node.Value = xNode.Attributes("Value").First.Value
+        node.Value = CType(Convert.ChangeType(xNode.Attributes("Value").First.Value, GetType(T)), T)
         If xNode.Attributes("MinValue").Any Then node.MinValue = If(xNode.Attributes("MinValue").First.Value = "{null}", Nothing, xNode.Attributes("MinValue").First.Value)
         If xNode.Attributes("MaxValue").Any Then node.MaxValue = If(xNode.Attributes("MaxValue").First.Value = "{null}", Nothing, xNode.Attributes("MaxValue").First.Value)
         If xNode.Attributes("DefaultValue").Any Then node.DefaultValue = If(xNode.Attributes("DefaultValue").First.Value = "{null}", Nothing, xNode.Attributes("DefaultValue").First.Value)

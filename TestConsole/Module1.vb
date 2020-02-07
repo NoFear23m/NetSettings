@@ -11,8 +11,11 @@
         dm.SetValue(Of String)(New NetSettingsManager.SettingNode(Of String)("TestKey6", "TestValue2"))
         dm.SetValue(Of String)(New NetSettingsManager.SettingNode(Of String)("TestKey7", "TestValue2"))
         dm.SetValue(Of String)(New NetSettingsManager.SettingNode(Of String)("TestKey2", "TestValue2Neu"))
+        dm.SetValue(New NetSettingsManager.SettingNode(Of Boolean)("MyBoolTest1", True))
+
 
         Dim val = dm.GetValue(Of String)("TestKey1")
+        Dim b = dm.GetValue(Of Boolean)("MyBoolTest1")
     End Sub
 
 End Module
