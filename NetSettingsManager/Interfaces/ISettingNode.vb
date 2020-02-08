@@ -8,9 +8,7 @@
         Property MaxValue As T
         Property Description As String
         Property Title As String
-
         Property UnitString As String
-
 
     End Interface
 End Namespace
